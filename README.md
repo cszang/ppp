@@ -21,7 +21,7 @@ library(ppp)
 A slow function to be used with `purrr::map*`:
 
 ```r
-slow_mean <- function(x, .var, .pb) {
+slow_mean <- function(x, .var) {
   Sys.sleep(1)
   .var <- rlang::enexpr(.var)
   mean(x[[.var]])
