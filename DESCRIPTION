@@ -1,0 +1,12 @@
+Package: ppp
+Type: Package
+Title: Spawn and decorate dplyr progressbars
+Version: 0.1.0
+Author: Christian Zang
+Maintainer: Christian Zang <christian.zang@wzw.tum.de>
+Description: Spawn a progressbar in a pipeline, and reuse it from within
+    decorated functions.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0
