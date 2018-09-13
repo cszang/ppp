@@ -49,3 +49,14 @@ mtcars %>%
   dplyr::mutate(mean_qsec = purrr::map_dbl(data, decorate_pb(slow_mean, .pb_qsec), qsec),
                 mean_disp = purrr::map_dbl(data, decorate_pb(slow_mean, .pb_disp), disp))
 ```
+
+Or one progress bar for all computations by knowing the number of calls to `map*` in advance, like so:
+
+```r
+mtcars %>%
+  dplyr::group_by(carb) %>%
+  tidyr::nest() %>%
+  spawn_pb(.times = 2) %>%
+  dplyr::mutate(mean_qsec = purrr::map_dbl(data, slow_mean, qsec, .pb),
+                mean_disp = purrr::map_dbl(data, slow_mean, disp, .pb))
+```
